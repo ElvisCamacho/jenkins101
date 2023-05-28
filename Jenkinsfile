@@ -1,10 +1,10 @@
 // jenking file
 pipeline {
-    agent { 
-        node {
-            label 'docker-agent-python'
-            }
-      }
+    agent any
+    environment {
+        SNYK_API_TOKEN = credentials('a78c804c-3175-491c-99de-28de9d5924e8')
+    }
+      
     triggers {
         pollSCM '* * * * *'
     }
