@@ -18,6 +18,19 @@ pipeline {
                 '''
             }
         }
+    stage('Snyk Scan') {
+    steps {
+        script {
+            def snykResult = sh script: 'snyk test --all-projects --severity-threshold=low', returnStatus: true
+            if (snykResult == 0) {
+                echo "No low severity vulnerabilities found."
+            } else {
+                error "Snyk scan detected low severity vulnerabilities. Please review and address them."
+            }
+        }
+    }
+}
+
         stage('Test') {
             steps {
                 echo "Testing.."
