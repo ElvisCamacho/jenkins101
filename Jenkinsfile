@@ -28,6 +28,12 @@ pipeline {
                 '''
             }
         }
+        stage('Snyk Security Scan') {
+            steps {
+                // Run Snyk security scan
+                sh 'snyk test --all-projects --all-sub-projects --json > snyk_report.json'
+            }
+        }
         stage('Deliver') {
             steps {
                 echo 'Deliver....'
