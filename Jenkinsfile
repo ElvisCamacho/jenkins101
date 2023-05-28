@@ -39,7 +39,7 @@ pipeline {
         stage('Snyk Security Scan') {
             steps {
                 // Run Snyk security scan
-                sh 'snyk test --all-projects --all-sub-projects --json > snyk_report.json'
+                sh "snyk test --all-projects --all-sub-projects --json --all-projects-api-token=${SNYK_API_TOKEN} > snyk_report.json"
             }
         }
         stage('Deliver') {
