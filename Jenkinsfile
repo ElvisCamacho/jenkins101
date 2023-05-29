@@ -46,8 +46,7 @@ pipeline {
                
                 // )
                 script{
-                def snykResult = snykSecurity projectName: 'my_first_buil_pipeline', snykInstallation: 'Snyk', snykTokenId: 'Snyk-Jenkins',returnStatus: true
-                if (snykResult == 0) {
+                def snykResult = snykSecurity projectName: 'my_first_buil_pipeline', snykInstallation: 'Snyk', snykTokenId: 'Snyk-Jenkins'
                 echo "No low severity vulnerabilities found."
             } else {
                 error "Snyk scan detected low severity vulnerabilities. Please review and address them."
