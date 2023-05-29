@@ -33,8 +33,8 @@ pipeline {
                 echo "security scanning in the background..."
                 snykSecurity(
                     snykInstallation: 'Snyk',
-                    snykTokenId: "2bad0831-f687-4cf8-b184-5055f21fc6a2"
-
+                    token:
+                        Authorization: "2bad0831-f687-4cf8-b184-5055f21fc6a2",
                     //snykTokenId: 'b4cfac1a-a91d-4b32-90fb-4444f7db9480',
                 )
                 // snykSecurity(
