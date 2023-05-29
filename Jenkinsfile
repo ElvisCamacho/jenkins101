@@ -34,7 +34,7 @@ pipeline {
                 snykSecurity(
                 snykInstallation: 'Snyk',
                 snykTokenId: 'snykTokenId'
-                snykTokenId: 'a78c804c-3175-491c-99de-28de9d5924e8'
+                //snykTokenId: 'a78c804c-3175-491c-99de-28de9d5924e8'
                 //snyk test --all-projects --all-sub-projects --json snykTokenId=snykTokenId > snyk_report.json
                 // sh '''
                 
