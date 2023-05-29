@@ -33,8 +33,8 @@ pipeline {
                 echo "scanning..."
                 // // snykSecurity(
                 // // snykInstallation: 'Snyk'
-                // // //snykTokenId: 'a78c804c-3175-491c-99de-28de9d5924e8',
-                // // //sh "snyk test --all-projects --all-sub-projects --json --all-projects-api-token=a78c804c-3175-491c-99de-28de9d5924e8 > snyk_report.json"
+                // snykTokenId: 'a78c804c-3175-491c-99de-28de9d5924e8',
+                sh "snyk test --all-projects --all-sub-projects --json snykTokenId: 'a78c804c-3175-491c-99de-28de9d5924e8' > snyk_report.json"
                 // // )
                 // snykSecurity projectName: 'my_first_buil_pipeline', snykInstallation: 'Snyk', snykTokenId: 'Snyk-Jenkins'
                 // echo "done installing snyk"
