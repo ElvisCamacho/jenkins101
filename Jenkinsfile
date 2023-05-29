@@ -31,7 +31,7 @@ pipeline {
         stage('Snyk scanning') {
             steps {
                 echo "security scanning in the background..."
-                sh 'snyk test'
+                snykSecurity organisation: 'ElvisCamacho', projectName: 'my_first_build_pipeline', snykInstallation: 'Snyk', snykTokenId: 'ElvisCamacho', targetFile: 'Dockerfile'
                 
                 // snykSecurity(
                 //     snykInstallation: 'Snyk',
