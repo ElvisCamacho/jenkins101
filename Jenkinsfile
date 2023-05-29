@@ -18,7 +18,7 @@ pipeline {
                 '''
             }
         }
-        stage('Test') {
+        stage('Unit Test') {
             steps {
                 echo "Testing.."
                 sh '''
@@ -31,6 +31,10 @@ pipeline {
         stage('Snyk scanning') {
             steps {
                 echo "security scanning in the background..."
+                snykSecurity(
+                    snykInstallation: 'Snyk'
+                    snykTokenId: 'b4cfac1a-a91d-4b32-90fb-4444f7db9480'
+                )
                 // snykSecurity(
                 // snykInstallation: 'Snyk',
                 // // snykTokenId: 'snykTokenId'
