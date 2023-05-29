@@ -1,5 +1,5 @@
 pipeline {
-    agent any vvvv
+    agent any
     // agent { 
     //      node {
     //          label 'docker-agent-python'
