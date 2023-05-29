@@ -8,6 +8,10 @@ pipeline {
     triggers {
         pollSCM '* * * * *'
     }
+    stage('Snyk scanning') {
+            steps {
+                echo "security scanning in the background..."
+                sh 'snyk test'}
     stages {
         stage('Build') {
             steps {
