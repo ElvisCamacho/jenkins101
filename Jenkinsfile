@@ -64,7 +64,7 @@ pipeline {
             //     }
             // }
                 // echo "done installing snyk"
-            }
+            
         }
         stage('Deliver') {
             steps {
