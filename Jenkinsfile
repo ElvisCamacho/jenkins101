@@ -31,12 +31,13 @@ pipeline {
         stage('Snyk scanning') {
             steps {
                 echo "security scanning in the background..."
-                snykSecurity(
-                    snykInstallation: 'Snyk',
-                    token:
-                        Authorization: "2bad0831-f687-4cf8-b184-5055f21fc6a2",
-                    //snykTokenId: 'b4cfac1a-a91d-4b32-90fb-4444f7db9480',
-                )
+                sh 'snyk test'
+                
+                // snykSecurity(
+                //     snykInstallation: 'Snyk',
+                //     : "2bad0831-f687-4cf8-b184-5055f21fc6a2",
+                //     //snykTokenId: 'b4cfac1a-a91d-4b32-90fb-4444f7db9480',
+                // )
                 // snykSecurity(
                 // snykInstallation: 'Snyk',
                 // // snykTokenId: 'snykTokenId'
