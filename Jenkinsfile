@@ -32,8 +32,8 @@ pipeline {
             steps {
                 echo "security scanning in the background..."
                 snykSecurity(
-                    snykInstallation: 'Snyk'
-                    //snykTokenId: 'b4cfac1a-a91d-4b32-90fb-4444f7db9480'
+                    snykInstallation: 'Snyk',
+                    snykTokenId: 'b4cfac1a-a91d-4b32-90fb-4444f7db9480',
                 )
                 // snykSecurity(
                 // snykInstallation: 'Snyk',
