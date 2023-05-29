@@ -1,10 +1,10 @@
 pipeline {
-    // agent any vvvv
-    agent { 
-         node {
-             label 'docker-agent-python'
-             }
-       }
+    agent any vvvv
+    // agent { 
+    //      node {
+    //          label 'docker-agent-python'
+    //          }
+    //    }
     triggers {
         pollSCM '* * * * *'
     }
@@ -34,11 +34,11 @@ pipeline {
                 // // snykSecurity(
                 // // snykInstallation: 'Snyk'
                 // snykTokenId: 'a78c804c-3175-491c-99de-28de9d5924e8',
-                // sh '''
-                // curl https://static.snyk.io/cli/latest/snyk-macos -o snyk
-                // chmod +x ./snyk
-                // mv ./snyk /usr/local/bin/
-                // '''
+                sh '''
+                snyk test --all-projects --all-sub-projects --json snykTokenId:'a78c804c-3175-491c-99de-28de9d5924e8' > snyk_report.json
+               
+            
+                '''
                 // apt install snyk -y
                 // snyk test --all-projects --all-sub-projects --json snykTokenId: 'a78c804c-3175-491c-99de-28de9d5924e8' > snyk_report.json
                
