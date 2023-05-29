@@ -1,10 +1,10 @@
 pipeline {
-    agent any
-    // agent { 
-    //     node {
-    //         label 'docker-agent-snyk'
-    //         }
-    //   }
+    // agent any
+    agent { 
+         node {
+             label 'docker-agent-snyk'
+             }
+       }
     triggers {
         pollSCM '* * * * *'
     }
