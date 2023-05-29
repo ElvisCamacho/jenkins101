@@ -48,5 +48,13 @@ pipeline {
                 '''
             }
         }
+        stage('Kurbenetes') {
+            steps {
+                echo 'Deliver....'
+                sh '''
+                echo "doing delivery stuff.."
+                '''
+            }
+        }
     }
 }
