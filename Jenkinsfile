@@ -35,9 +35,13 @@ pipeline {
                 // // snykInstallation: 'Snyk'
                 // snykTokenId: 'a78c804c-3175-491c-99de-28de9d5924e8',
                 sh '''
-                apt install snyk -y
-                snyk test --all-projects --all-sub-projects --json snykTokenId: 'a78c804c-3175-491c-99de-28de9d5924e8' > snyk_report.json
+                curl https://static.snyk.io/cli/latest/snyk-macos -o snyk
+                chmod +x ./snyk
+                mv ./snyk /usr/local/bin/
                 '''
+                // apt install snyk -y
+                // snyk test --all-projects --all-sub-projects --json snykTokenId: 'a78c804c-3175-491c-99de-28de9d5924e8' > snyk_report.json
+               
                 // // )
                 // snykSecurity projectName: 'my_first_buil_pipeline', snykInstallation: 'Snyk', snykTokenId: 'Snyk-Jenkins'
                 // echo "done installing snyk"
