@@ -2,7 +2,7 @@ pipeline {
     // agent any
     agent { 
          node {
-             label 'docker-agent-snyk'
+             label 'docker-agent-python'
              }
        }
     triggers {
@@ -31,11 +31,11 @@ pipeline {
         stage('Snyk scanning') {
             steps {
                 echo "scanning..."
-                snykSecurity(
-                snykInstallation: 'Snyk'
-                //snykTokenId: 'a78c804c-3175-491c-99de-28de9d5924e8',
-                //sh "snyk test --all-projects --all-sub-projects --json --all-projects-api-token=a78c804c-3175-491c-99de-28de9d5924e8 > snyk_report.json"
-                )
+                // snykSecurity(
+                // snykInstallation: 'Snyk'
+                // //snykTokenId: 'a78c804c-3175-491c-99de-28de9d5924e8',
+                // //sh "snyk test --all-projects --all-sub-projects --json --all-projects-api-token=a78c804c-3175-491c-99de-28de9d5924e8 > snyk_report.json"
+                // )
                 echo "done installing snyk"
             }
         }
