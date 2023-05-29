@@ -22,9 +22,6 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
-                curl https://static.snyk.io/cli/latest/snyk-macos -o snyk
-                chmod +x ./snyk
-                mv ./snyk /usr/local/bin/
                 cd myapp
                 python3 hello.py
                 python3 hello.py --name=Elvis
