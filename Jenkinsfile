@@ -1,19 +1,11 @@
 // jenking file
 pipeline {
-// <<<<<<< HEAD
-    agent any
-    environment {
-        SNYK_API_TOKEN = credentials('a78c804c-3175-491c-99de-28de9d5924e8')
-    }
-      
-// =======
-//     agent { 
-//         node {
-//             label 'docker-agent-snyk'
-//             }
-//       }
-// >>>>>>> c12959366c0039595ed50cb339bb8bf3efdbab0b
-  triggers {
+    agent { 
+        node {
+            label 'docker-agent-python'
+            }
+      }
+    triggers {
         pollSCM '* * * * *'
     }
     stages {
@@ -36,10 +28,12 @@ pipeline {
                 '''
             }
         }
-        stage('Snyk Security Scan') {
+        stage('Snyk scanning') {
             steps {
-                // Run Snyk security scan
-                sh 'snyk test --all-projects --all-sub-projects --json > snyk_report.json'
+                echo "scanning..."
+                snykInstallation: 'snyk',
+                snykTokenId: 'a78c804c-3175-491c-99de-28de9d5924e8',
+                sh "snyk test --all-projects --all-sub-projects --json --all-projects-api-token=a78c804c-3175-491c-99de-28de9d5924e8 > snyk_report.json"
             }
         }
         stage('Deliver') {
