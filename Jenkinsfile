@@ -2,7 +2,7 @@ pipeline {
     // agent any
     agent { 
          node {
-             label 'docker-agent-python'
+             label 'docker-agent-snyk'
              }
        }
     triggers {
